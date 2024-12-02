@@ -2,18 +2,25 @@
     <div :class="['container', $style.todoWrapper]">
         <h2 :class="$style.heading">Список задач</h2>
         <div :class="$style.cardsWrapper">
-            <TodoCard text="Карточка" />
-            <TodoCard text="Карточка с очень большим длинным текстом" />
-            <TodoCard text="Карточка с текстом" />
-            <TodoCard text="Карточка" />
-            <TodoCard text="Карточка" />
-            <TodoCard text="Карточка" />
+            <TodoCard 
+            v-for="(task, index) in tasks"
+            :key="task.id"
+            :text="task.text"
+            />
         </div>
     </div>
 </template>
 
 <script setup>
 import TodoCard from '@/components/TodoCard.vue';
+const tasks = [
+    { text: 'Карточка' },
+    { text: 'Карточка с очень большим длинным текстом' },
+    { text: 'Карточка с текстом' },
+    { text: 'Карточка' },
+    { text: 'Карточка' },
+    { text: 'Карточка' },
+];
 </script>
 
 <style module>
