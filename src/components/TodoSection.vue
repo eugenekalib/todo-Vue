@@ -3,7 +3,7 @@
         <h2 :class="$style.heading">Список задач</h2>
         <div :class="$style.cardsWrapper">
             <TodoCard 
-            v-for="(task, index) in tasks"
+            v-for="task in tasks"
             :key="task.id"
             :text="task.text"
             />
@@ -13,14 +13,21 @@
 
 <script setup>
 import TodoCard from '@/components/TodoCard.vue';
-const tasks = [
-    { text: 'Карточка' },
-    { text: 'Карточка с очень большим длинным текстом' },
-    { text: 'Карточка с текстом' },
-    { text: 'Карточка' },
-    { text: 'Карточка' },
-    { text: 'Карточка' },
-];
+import { onMounted } from "vue";
+import getTodos from '@/api/api-todos';
+import { reactive } from 'vue';
+
+const tasks = reactive([]);
+
+const getTodoList = async () => {
+    const response = await getTodos();
+    tasks.push(...response);
+} 
+
+onMounted(async () => {
+    await getTodoList();
+})
+
 </script>
 
 <style module>
