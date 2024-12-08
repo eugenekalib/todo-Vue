@@ -2,7 +2,7 @@
 <header :class="$style.header">
     <div :class="['container', $style.headerWrapper]">
         <AppLogo />
-        <AppButton text="Создать" />
+        <AppButton type="create"/>
     </div>
 </header>
 </template>

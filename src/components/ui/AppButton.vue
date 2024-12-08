@@ -1,14 +1,24 @@
 <template>
-<button :class="$style.button">{{ text }}</button>
+<button :class="$style.button">{{ buttonText }}</button>
 </template>
 
 <script setup>
-defineProps({
-    text: {
+import { computed } from 'vue';
+
+const props = defineProps({
+    type: {
         type: String,
         required: true,
-    }
-})
+    },
+});
+
+const buttonText = computed(() => {
+    const text = {
+            create: 'Создать',
+            delete: 'Удалить',
+    };
+    return text[props.type] || 'Кнопка';
+});
 </script>
 
 <style module>

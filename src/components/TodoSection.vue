@@ -37,10 +37,21 @@ onMounted(async () => {
     font-size: 24px;
 }
 .cardsWrapper {
+    --columns-count: 3;
     margin-top: 40px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(var(--columns-count), 1fr);
     row-gap: 20px;
     column-gap: 50px;
+}
+@media (max-width: 768px) {
+    .cardsWrapper {
+        --columns-count: 2;
+    }
+}
+@media (max-width: 480px) {
+    .cardsWrapper {
+        --columns-count: 1;
+    }
 }
 </style>
