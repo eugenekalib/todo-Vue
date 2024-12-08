@@ -1,6 +1,7 @@
-import http from "@/utilis/http";
+import http from '@/utils/http';
 const getTodos = async () => {
-    const endpoint = "todos";
-    return await http.get(endpoint);
+    const endpoint = '/todos';
+    const todos = await http.get(endpoint);
+    return todos;
 }
-export default getTodos;
+export { getTodos };

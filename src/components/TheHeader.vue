@@ -8,8 +8,8 @@
 </template>
 
 <script setup>
-import AppLogo from "@/components/ui/AppLogo.vue";
-import AppButton from "@/components/ui/AppButton.vue";
+import AppLogo from '@/components/ui/AppLogo.vue';
+import AppButton from '@/components/ui/AppButton.vue';
 </script>
 
 <style module>

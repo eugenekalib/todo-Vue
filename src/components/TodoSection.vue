@@ -13,21 +13,19 @@
 
 <script setup>
 import TodoCard from '@/components/TodoCard.vue';
-import { onMounted } from "vue";
-import getTodos from '@/api/api-todos';
-import { reactive } from 'vue';
+import { getTodos } from '@/api/api-todos';
+import { onMounted, reactive } from 'vue';
 
 const tasks = reactive([]);
 
 const getTodoList = async () => {
-    const response = await getTodos();
-    tasks.push(...response);
+    const todoList = await getTodos();
+    tasks.push(...todoList);
 } 
 
 onMounted(async () => {
     await getTodoList();
 })
-
 </script>
 
 <style module>

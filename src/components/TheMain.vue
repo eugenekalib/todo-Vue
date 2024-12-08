@@ -3,5 +3,5 @@
 </template>
 
 <script setup>
-import TodoSection from "@/components/TodoSection.vue"
+import TodoSection from '@/components/TodoSection.vue'
 </script>
