@@ -28,5 +28,6 @@ const buttonText = computed(() => {
     color: var(--color-white);
     background: transparent;
     border-radius: 2px;
+    z-index: 2;
 }
 </style>

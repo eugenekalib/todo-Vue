@@ -5,8 +5,7 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
-import { useCssModule } from 'vue';
+import { computed, useCssModule } from 'vue';
 
 const classesList = useCssModule();
 
