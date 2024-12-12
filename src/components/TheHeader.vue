@@ -1,8 +1,8 @@
 <template>
 <header :class="$style.header">
     <div :class="['container', $style.headerWrapper]">
-        <AppLogo />
-        <AppButton type="create"/>
+        <AppLogo text/>
+        <AppButton buttonText="Создать" type="outline"/>
     </div>
 </header>
 </template>

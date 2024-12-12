@@ -13,15 +13,11 @@ const props = defineProps({
     type: {
         type: String,
         required: true,
+    },
+    buttonText: {
+        type: String,
+        required: false,
     }
-});
-
-const buttonText = computed(() => {
-    const text = {
-        change: 'Изменить',
-        delete: 'Удалить',
-    };
-    return text[props.type];
 });
 const buttonClasses = computed(() => {
     const buttonClass = {

@@ -6,8 +6,8 @@
     >
         <p> {{ text }} </p>
         <div :class="$style.buttons">
-            <TodoButton v-show="isHovered" type="change" />
-            <TodoButton v-show="isHovered" type="delete" />
+            <TodoButton v-show="isHovered" type="change" buttonText="Изменить" />
+            <TodoButton v-show="isHovered" type="delete" buttonText="Удалить" />
         </div>
     </div>
 </template>
