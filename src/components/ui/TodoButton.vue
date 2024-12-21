@@ -1,6 +1,6 @@
 <template>
     <button :class="[$style.todoButton, buttonClasses]">
-        {{ buttonText }}
+        {{ text }}
     </button>
 </template>
 
@@ -14,7 +14,7 @@ const props = defineProps({
         type: String,
         required: true,
     },
-    buttonText: {
+    text: {
         type: String,
         required: false,
     }

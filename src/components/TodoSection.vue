@@ -3,24 +3,24 @@
         <h2 :class="$style.heading">Список задач</h2>
         <div :class="$style.cardsWrapper">
             <TodoCard 
-            v-for="task in tasks"
-            :key="task.id"
-            :text="task.text"
+                v-for="todo in todos"
+                :key="todo.id"
+                :text="todo.text"
             />
         </div>
     </div>
 </template>
 
 <script setup>
-import TodoCard from '@/components/TodoCard.vue';
-import { getTodos } from '@/api/api-todos';
 import { onMounted, reactive } from 'vue';
+import { getTodos } from '@/api/api-todos';
+import TodoCard from '@/components/TodoCard.vue';
 
-const tasks = reactive([]);
+const todos = reactive([]);
 
 const getTodoList = async () => {
     const todoList = await getTodos();
-    tasks.push(...todoList);
+    todos.push(...todoList);
 } 
 
 onMounted(async () => {

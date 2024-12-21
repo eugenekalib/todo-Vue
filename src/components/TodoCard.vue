@@ -1,22 +1,15 @@
 <template>
-    <div 
-    :class="$style.card"
-    @mouseover="isHovered = true" 
-    @mouseleave="isHovered = false" 
-    >
+    <div :class="$style.card">
         <p> {{ text }} </p>
         <div :class="$style.buttons">
-            <TodoButton v-show="isHovered" type="change" buttonText="Изменить" />
-            <TodoButton v-show="isHovered" type="delete" buttonText="Удалить" />
+            <TodoButton type="change" text="Изменить" />
+            <TodoButton type="delete" text="Удалить" />
         </div>
     </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
 import TodoButton from '@/components/ui/TodoButton.vue';
-
-const isHovered = ref(false);
 
 defineProps({
     text: {
@@ -36,10 +29,17 @@ defineProps({
     font-size: 20px;
     position: relative;
 }
+.card:hover .buttons {
+    opacity: 1;
+    visibility: visible;
+}
 .buttons {
     position: absolute;
     right: 20px;
     top: -11px;
     margin-left: 10px;
+    opacity: 0;
+    visibility: hidden ;
+    transition: 0.2s;
 }
 </style>

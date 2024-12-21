@@ -1,48 +1,53 @@
 <template>
-<button :class="[$style.button, buttonClass]">{{ buttonText }}</button>
+<button :class="[$style.button, classList]">{{ text }}</button>
 </template>
 
 <script setup>
 import { computed, useCssModule } from 'vue';
 
-const classList = useCssModule();
+const $style = useCssModule();
 
 const props = defineProps({
     type: {
         type: String,
-        required: true,
+        default: '',
     },
-    buttonText: {
+    text: {
         type: String,
-        default: 'Кнопка',
+        required: true
     }
 });
-const buttonClass = computed(() => {
-    const typeToClassMap = {
-        outline: classList.outline || '',
-        green: classList.green || '',
-        red: classList.red || '',
-    }
-    return typeToClassMap[props.type]
+
+const classList = computed(() => {
+    return [
+        props.type === 'outlined' && $style.typeOutlined,
+        props.type === 'green' && $style.typeGreen,
+        props.type === 'red' && $style.red,
+    ];
 })
 </script>
 
 <style module>
 .button {
     padding: 8px 20px;
-    color: var(--color-white);
     border-radius: 2px;
+    color: var(--color-black);
+    background-color: var(--color-white);
+    border: 1px solid transparent;
 }
-.outline {
+.typeOutlined {
     background: transparent;
-    border: 1px solid var(--color-white);
+    border-color: var(--color-white);
+    color: var(--color-white);
 }
-.green {
+.typeGreen {
     background-color: var(--color-success);
-    border: 1px solif var(--color-success);
+    border-color: var(--color-success);
+    color: var(--color-white);
 }
-.red {
+.typeRed {
     background-color: var(--color-error);
-    border: 1px solid var(--color-error);
+    border-color: var(--color-error);
+    color: var(--color-white);
 }
 </style>
